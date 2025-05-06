@@ -1,0 +1,23 @@
+apt-get update
+apt-get install nmap
+nmap --version
+nmap -sS -p- <target URL>
+
+Output:
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-02-06 11:48 UTC
+Stats: 0:00:02 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth
+Scan
+SYN Stealth Scan Timing: About 1.19% done; ETC: 11:51 (0:02:46 remaining)
+Stats: 0:00:03 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth
+Scan
+SYN Stealth Scan Timing: About 2.26% done; ETC: 11:50 (0:02:10 remaining)
+Nmap scan report for <target URL> (136.x.x.x)
+Host is up (0.12s latency).
+rDNS record for 136.x.x.x: 136-x-x-x.<URL>
+Not shown: 65532 closed ports
+PORT STATE SERVICE
+22/tcp open ssh   #port open
+80/tcp open http   #port open
+443/tcp open https   #port open
+Nmap done: 1 IP address (1 host up) scanned in 51.82 seconds
