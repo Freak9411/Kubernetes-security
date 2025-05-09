@@ -1,0 +1,29 @@
+Question:
+You are working with a Helm Chart that creates pods starting with the name helm. As a platform administrator, you want such pods to have a specific annotation
+
+Answer:
+vi file.yaml
+
+=========================================================================================================================
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: file
+spec:
+  rules:
+  - name: file
+    match:
+      all:
+      - resources:
+          kinds:
+          - Pod
+          names:
+          - "helm*"
+    mutate:
+      patchStrategicMerge:
+        metadata:
+          annotations:
+            +(logo.x): Helm Chart
+==============================================================================================================================
+
+k create -f file.yaml   #anypod having name 'helm' in prefix will annotated as per the Kyverno mutate policy
